@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersApp", "CustomersApp\CustomersApp.csproj", "{EE8F1528-7D51-40A0-BCAC-F819ED13BEB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericApp", "GenericApp\GenericApp.csproj", "{FE69C70C-2CA8-408F-BD17-5A80CF895938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8", "Lab8\Lab8.csproj", "{CE4E26F1-136E-405B-9CE7-25D04DD8D1BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab8.1", "Lab8\Lab8.1.csproj", "{CE4E26F1-136E-405B-9CE7-25D04DD8D1BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSystem", "MailSystem\MailSystem.csproj", "{C3A876E0-406E-43CC-BA44-AF4E971F8EB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{CE4E26F1-136E-405B-9CE7-25D04DD8D1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE4E26F1-136E-405B-9CE7-25D04DD8D1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE4E26F1-136E-405B-9CE7-25D04DD8D1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A876E0-406E-43CC-BA44-AF4E971F8EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A876E0-406E-43CC-BA44-AF4E971F8EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A876E0-406E-43CC-BA44-AF4E971F8EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A876E0-406E-43CC-BA44-AF4E971F8EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
