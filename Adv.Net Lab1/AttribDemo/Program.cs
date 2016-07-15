@@ -11,7 +11,7 @@ namespace AttribDemo
     {
         static void Main(string[] args)
         {
-            AssemblyAnalayzer analayzer = new AssemblyAnalayzer();
+            AssemblyAnalayzer analayzer = new AssemblyAnalayzer(); 
 
             analayzer.AssemblyChecker(Assembly.GetExecutingAssembly());
 
