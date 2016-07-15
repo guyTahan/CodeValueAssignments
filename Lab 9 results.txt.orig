@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+Lab 9
+
+2. the application does work because the assembly will search for the dll in subfolders that
+   have the same name as the dll's name.
+
+3. after we changed the subfolder's name from ShapeLib to Bin, the assembly couldn't find it.
+
+12.The application runs properly now, because we added a config file which orders the assembly to
+   search inside the "Bin" folder during the binding.
+   The assembly searched and found the "missing" shapesLib.dll inside, allowing the application
+=======
+Lab 9
+
+2. the application does work because the assembly will search for the dll in subfolders that
+   have the same name as the dll's name.
+
+3. after we changed the subfolder's name from ShapeLib to Bin, the assembly couldn't find it.
+
+12.The application runs properly now, because we added a config file which orders the assembly to
+   search inside the "Bin" folder during the binding.
+   The assembly searched and found the "missing" shapesLib.dll inside, allowing the application
+>>>>>>> b40d774502a2d832639d52f43e770ba4e620b92a
+   to use it and work properly.
