@@ -12,25 +12,35 @@ namespace DynInvoke
 
         static string InvokeHello(Object o, String str)
         {
-            /*
-            Type objType = o.GetType();
-            Type strType = str.GetType();
-            Type[] args = { str.GetType() };
-            MethodInfo hello = objType.GetMethod("Hello", args);
-            object[] parameters = { str };
-            hello.Invoke(o, parameters);
-            */
             object[] args = { str };
+            bool exceptionThrown = false;
+            string output = "";
             Type type = o.GetType();
             try
             {
-                return o.GetType().InvokeMember("Hello", BindingFlags.InvokeMethod, null, o, args) as string;
+                output = o.GetType().InvokeMember("Hello", BindingFlags.InvokeMethod, null, o, args) as string;
             }
             catch(System.Reflection.TargetInvocationException)
             {
-                Console.WriteLine("could not invoke method.. exception was thrown. ");
-                return null;
+                exceptionThrown = true;
+                Console.WriteLine("could not invoke method.. TargetInvocationException exception was thrown. ");
             }
+            catch(ArgumentNullException)
+            {
+                Console.WriteLine("are you serious? really? a null argument?!  ArgumentNullException? exception was thrown.....");
+            }
+            finally
+            {
+                
+            }
+            if (exceptionThrown == true)
+            {
+                Console.WriteLine("Attempt to invoke hello has failed . . . ");
+                output = "";
+            }
+
+            return output;
+
         }
 
         static void Main(string[] args)
