@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace BackGammon
 {
-   
+
 
     public class Player
     {
-        
+        private Color _color;
+
+        public Color Color
+        {
+            get { return _color; }
+        }
     }
 }

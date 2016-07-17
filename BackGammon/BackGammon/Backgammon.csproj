@@ -47,6 +47,7 @@
     <Compile Include="BackgammonGame.cs" />
     <Compile Include="Checker.cs" />
     <Compile Include="GameBoard.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="Pillar.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
