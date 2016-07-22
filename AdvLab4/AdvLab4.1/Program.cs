@@ -81,7 +81,19 @@ namespace AdvLab4._1
             }
 
             Console.WriteLine($"Total number of threads in this system: {sum}");
-        }
 
+
+            //--------------------lab 4.1.2--------------------------------------------
+
+            Crocodile c1 = new Crocodile(1,1000,500);
+            Crocodile c2 = new Crocodile(2,600,300);
+
+            Console.WriteLine(c1);
+
+            c2.CopyTo(c1);
+
+            Console.WriteLine(c1);
+        }
+        
     }
 }
