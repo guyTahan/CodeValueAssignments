@@ -13,7 +13,7 @@ namespace AdvLab4._1
         static void Main(string[] args)
         {
             //--------------- lab 4.1 a------------------------------------
-            /*
+
 
             Assembly assembly = typeof(string).Assembly;
             List<Type> list = new List<Type>();
@@ -32,27 +32,55 @@ namespace AdvLab4._1
                 Console.WriteLine($"Name: {q.Name}  Methods: {q.NumberOfMethods}");
             }
 
-            */
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
 
-            //--------------- lab 4.1 b-----------------------------------
+            //--------------- lab 4.1 b + c-----------------------------------
 
 
             processStartTimeChecker checker = new processStartTimeChecker();
 
             var query2 = from p in Process.GetProcesses()
-                where p.Threads.Count < 5 && checker.CheckIfYouCanAccessRunTime(p)==true
-                orderby  p.Id
-                select new{
-                    Name = p.ProcessName
-                    ,ID = p.Id
-                    ,p.StartTime
-                };
+                         where p.Threads.Count < 5 
+                         group p by p.BasePriority into priorityGroup
+                         select priorityGroup;
 
-            foreach (var q in query2)
+            foreach (var group in query2)
             {
-                Console.WriteLine($"Name: {q.Name} ID: {q.ID}  StartTime: {q.StartTime}");
+                Console.WriteLine($"Priority:  {group.Key}");
+                foreach (var process in group )
+                {
+                    if (checker.CheckIfYouCanAccessRunTime(process) == true)
+                    {
+                        Console.WriteLine($"Name: {process.ProcessName} ID: {process.Id}  StartTime: {process.StartTime}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Name: {process.ProcessName} ID: {process.Id}  StartTime: Access Denied");
+                    }
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
             }
-            //--------------- lab 4.1 c-----------------------------------
+
+
+
+
+            //--------------- lab 4.1 d-----------------------------------
+
+            var query3 = from p in Process.GetProcesses()
+                         select p.Threads.Count;
+
+            long sum = 0;
+            foreach (int threads in query3)
+            {
+                sum += threads;
+            }
+
+            Console.WriteLine($"Total number of threads in this system: {sum}");
         }
 
     }
