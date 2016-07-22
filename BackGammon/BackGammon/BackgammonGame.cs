@@ -12,10 +12,11 @@ namespace BackGammon
         private Player _playerOne, _playerTwo;
         private int _TurnOfPlayer;
         private List<int> _cubeResults;
+        private List<Move> _legalMovesForThisTurn;
 
 
 
-        private Player TurnOfWhichPlayer()
+        public Player TurnOfWhichPlayer()
         {
             if (_TurnOfPlayer==1)
             {
@@ -26,29 +27,48 @@ namespace BackGammon
                 return _playerTwo;
             }
         }
-       
-        public bool AttemptToMove(string moveString)
+        
+        public void generateAllLegalMoves()
         {
-            bool firstNumConvertion;
-            bool secondNumConvertion;
-            int start, end;
+            _legalMovesForThisTurn.Clear();
+            if (playerHasImprisonedTokens() == true)
+            {
+                _legalMovesForThisTurn = _board.GeneratePrisonBreakMovesForPlayer(TurnOfWhichPlayer(), _cubeResults);
+                return;
+            }
 
-            string[] splitNums = moveString.Split(',');
+            if (CanTheCorrectPlayerBearOff() == true)
+            {
+                _legalMovesForThisTurn = _board.GenerateBearOffMoves(TurnOfWhichPlayer(), _cubeResults);
+                return;
+            }
+
+
+            _legalMovesForThisTurn = _board.GenerateAllNormalMoves(TurnOfWhichPlayer(), _cubeResults);
             
+        }
 
-            firstNumConvertion = int.TryParse(splitNums[0], out start);
-            secondNumConvertion = int.TryParse(splitNums[1], out end);
+        public bool CanTheCorrectPlayerBearOff()
+        {
+            return _board.CanThePlayerBearOff(TurnOfWhichPlayer());
+        }
 
-            if (firstNumConvertion && secondNumConvertion)
-            {
-                if ()
-                return _board.AttemptToMove(start, end, this.TurnOfWhichPlayer());
-            }
-            else
-            {
-                return false;
-            }
-        }        
+        public bool playerHasImprisonedTokens()
+        {
+            return _board.PlayerHasImprisonedTokens(this.TurnOfWhichPlayer());
+        }
+
+        private void generateAllLegalPrisonBreakMoves()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AttemptToMove(Move move)
+        {
+            throw new NotImplementedException();
+        }
+
+        
 
         public void RollTheDice()
         {
