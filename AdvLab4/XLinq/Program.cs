@@ -37,7 +37,7 @@ namespace XLinq
 
 
             Console.WriteLine(typesInXML.ToString());
-
+            Console.WriteLine();
 
             //---------------------------------part 3 a ------------------------------------------
 
@@ -78,7 +78,9 @@ namespace XLinq
                              {
                                  Name = allParametersInTypeGroups.Key,
                                  Count = allParametersInTypeGroups.Count()
-                             }; 
+                             };
+
+            Console.WriteLine($"Common parameter type: {allParameters.First().Name}  was found {allParameters.First().Count} times");
         }
     }
 }
