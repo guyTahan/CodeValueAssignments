@@ -78,7 +78,7 @@ namespace XLinq
                              {
                                  Name = allParametersInTypeGroups.Key,
                                  Count = allParametersInTypeGroups.Count()
-                             };
+                             }; 
         }
     }
 }
